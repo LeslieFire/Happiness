@@ -8,10 +8,20 @@
 
 import UIKit
 
+// always call xxxDelegate, but since this protocol is us
+// used to get/do thing with data smiliness, we call it data source
+protocol FaceViewDataSource : class {
+    func smilinessForFaceView(sender: FaceView) -> Double?
+}
+
+@IBDesignable
 class FaceView: UIView {
     
+    @IBInspectable
     var lineWidth : CGFloat = 3 { didSet{ setNeedsDisplay() }}
+    @IBInspectable
     var color : UIColor = UIColor.blueColor(){ didSet{ setNeedsDisplay() }}
+    @IBInspectable
     var scale : CGFloat = 0.90 { didSet{ setNeedsDisplay() }}
     
     var faceCenter : CGPoint{
@@ -20,6 +30,15 @@ class FaceView: UIView {
     
     var faceRadius : CGFloat{
         return min(bounds.size.width, bounds.size.height) / 2 * scale
+    }
+    
+    weak var dataSource : FaceViewDataSource?
+    
+    func scale(gesture: UIPinchGestureRecognizer){
+        if gesture.state == .Changed{
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
     }
     
     private struct Scaling {
@@ -83,7 +102,7 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        let smiliness = 0.75
+        let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0
         let smile = bezierPathForSmile(smiliness)
         smile.stroke()  
     }
