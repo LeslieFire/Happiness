@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SyI-V9-guZ">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Happiness View Controller-->
+        <scene sceneID="bva-yu-ZXB">
+            <objects>
+                <viewController id="SyI-V9-guZ" customClass="HappinessViewController" customModule="Happiness" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R6d-5a-wyu"/>
+                        <viewControllerLayoutGuide type="bottom" id="SVE-yN-9pF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZaE-UI-3Cn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Try-hi-UQT" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Try-hi-UQT" firstAttribute="leading" secondItem="ZaE-UI-3Cn" secondAttribute="leading" id="L03-gc-od0"/>
+                            <constraint firstAttribute="trailing" secondItem="Try-hi-UQT" secondAttribute="trailing" id="Tpa-xw-W9c"/>
+                            <constraint firstItem="Try-hi-UQT" firstAttribute="bottom" secondItem="SVE-yN-9pF" secondAttribute="top" id="tQV-i3-jXD"/>
+                            <constraint firstItem="Try-hi-UQT" firstAttribute="top" secondItem="ZaE-UI-3Cn" secondAttribute="top" id="xb3-xi-SRR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YK1-4g-bMJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315" y="350"/>
+        </scene>
+    </scenes>
+</document>
